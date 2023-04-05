@@ -119,7 +119,7 @@ const comments = async (req, res) =>{
     try {
         const userComments = await Comment.find({post: numberId}).select('comment').populate({
             path: 'user',
-            select: 'name email -_id'
+            select: 'name email image -_id'
         });
         res.status(200).json(userComments);
         //console.log(userComments);
