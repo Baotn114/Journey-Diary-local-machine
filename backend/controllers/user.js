@@ -104,7 +104,7 @@ const comment = async (req, res) => {
         })
         const response = await Comment.find({post: numberId}).select('comment').populate({
             path: 'user',
-            select: 'name email -_id'
+            select: 'name email image -_id'
         })
         const data = response.slice(-1)[0];
         //console.log(data);

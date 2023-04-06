@@ -56,7 +56,7 @@ const Comments = (data_id) => {
                     <div className="d-flex flex-start">
                       <MDBCardImage
                         className="rounded-circle shadow-1-strong me-3"
-                        src={data && data.user.image ? data.user.image : 'https://static.vecteezy.com/system/resources/previews/009/734/564/original/default-avatar-profile-icon-of-social-media-user-vector.jpg'}
+                        src={userComments && data.user.image ? data.user.image : 'https://static.vecteezy.com/system/resources/previews/009/734/564/original/default-avatar-profile-icon-of-social-media-user-vector.jpg'}
                         alt="avatar"
                         width="60"
                         height="60"
