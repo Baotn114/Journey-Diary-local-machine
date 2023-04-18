@@ -10,6 +10,7 @@ import PostDetails from "./components/PostDetails";
 import User from "./pages/User";
 import PostCreate from "./pages/PostCreate";
 import { useAuthContext } from "./hooks/useAuthContext";
+import AuthWrapper from "./components/AuthWrapper";
 function App() {
   const {user} = useAuthContext();
 
@@ -22,8 +23,10 @@ function App() {
           <Route path="/signIn" element={<SignIn />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/details/:id" element={<PostDetails />} />
-          {user && <Route path="/user" element={<User />} />}
-          {user && <Route path="/creation" element={<PostCreate />} />}
+          <Route element={<AuthWrapper />}>
+            {user && <Route path="/user" element={<User />} />}
+            {user && <Route path="/creation" element={<PostCreate />} />}
+          </Route>
         </Routes>
         <Footer />
     </div>
