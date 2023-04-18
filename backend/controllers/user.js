@@ -19,7 +19,7 @@ const jwt = require('jsonwebtoken');
 //Tao function de create JWT
 const generateToken = (id)=>{
     return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: '3d'
+        expiresIn: '1d'
     })
 }
 
