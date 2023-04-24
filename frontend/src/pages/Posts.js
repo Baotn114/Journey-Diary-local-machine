@@ -3,7 +3,8 @@ import {
     MDBCardBody,
     MDBCardTitle,
     MDBCardText,
-    MDBCardImage
+    MDBCardImage,
+    MDBSpinner
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -33,7 +34,23 @@ const Posts = () => {
         <div className="container-page" style={{backgroundImage: `url(https://wallpaperset.com/w/full/9/f/b/38639.jpg)`, backgroundRepeat: 'no-repeat', backgroundSize:'cover'}}>
             <div className="custom-post">
                 <div className="row" style={{marginTop: '30px'}}>
-                    {post && post.map((data)=>(
+                    {!post 
+                    
+                    ?   <div className='custom-post' style={{marginTop: '20%'}}>
+                            <MDBSpinner grow className='mx-2' size="sm" color='info'>
+                                <span className=''></span>
+                            </MDBSpinner>
+                            <MDBSpinner grow className='mx-2' size="sm" color='info'>
+                                <span className=''></span>
+                            </MDBSpinner>  
+                            <MDBSpinner grow className='mx-2' size="sm" color='info'>
+                                <span className=''></span>
+                            </MDBSpinner>
+                            <MDBSpinner grow className='mx-2' size="sm" color='info'>
+                                <span className=''></span>
+                            </MDBSpinner>
+                        </div>          
+                     : post.map((data)=>(
                         <div className="col-sm-3" style={{width: '300px', marginTop: '30px'}}>
                             <Link to={`/details/${data._id}`} key={data._id}>
                                 <MDBCard>
